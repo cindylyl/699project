@@ -1,6 +1,6 @@
 # 699project
 
-useful git command & steps to manage our project
+useful git commands & steps to manage our project
 ```bash
 # clone project for the first time
 git clone https://github.com/zhang1oc/699project.git
@@ -15,7 +15,7 @@ git push
 
 
 # for later editing
-# remember to type following command before changing files to get lastest version of project each time
+# remember to type following commands before changing files to get lastest version of project each time
 git pull
 # edit files
 git add .
