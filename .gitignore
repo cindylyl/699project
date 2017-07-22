@@ -105,3 +105,4 @@ ENV/
 .idea
 
 db.sqlite3
+fabfile.py
