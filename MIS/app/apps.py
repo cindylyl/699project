@@ -3,3 +3,7 @@ from django.apps import AppConfig
 
 class AppConfig(AppConfig):
     name = 'app'
+
+
+class ProfileConfig(AppConfig):
+    name = "student"

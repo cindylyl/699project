@@ -1,8 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+
 
 
 # Create your models here.
@@ -93,16 +92,16 @@ class Student(models.Model):
     )
 
     user = models.OneToOneField(User)
-    job_id = models.ForeignKey(Job)
-    semester_id = models.ForeignKey(Semester_registered)
+    job_id = models.ForeignKey(Job,blank=True,null=True)
+    semester_id = models.ForeignKey(Semester_registered, blank=True, null=True)
     # stu_firstname = models.CharField(max_length=50)
     # stu_midname = models.CharField(max_length=50)
     # stu_lastname = models.CharField(max_length=50)
     # stu_email = models.EmailField()
-    stu_telephone = models.IntegerField()
-    stu_gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    stu_telephone = models.IntegerField(null=True, blank= True)
+    stu_gender = models.CharField(max_length=1, choices=GENDER_CHOICES,default="")
     stu_status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='I')
-    stu_current_past = models.CharField(max_length=1, choices=CURRENT_PAST)
+    stu_current_past = models.CharField(max_length=1, choices=CURRENT_PAST,default="")
 
     def __str__(self):
         return "{} {}".format(self.user.first_name, self.user.last_name)
@@ -110,9 +109,9 @@ class Student(models.Model):
 
 class Faculty(models.Model):
     user = models.OneToOneField(User)
-    fac_department = models.CharField(max_length=20)
-    fac_hire_date = models.DateField(default = datetime.date.today)
-    fac_professor_rank = models.IntegerField()
+    fac_department = models.CharField(max_length=20,default="")
+    fac_hire_date = models.DateField(auto_now=True)
+    fac_professor_rank = models.IntegerField(default=0)
 
     def __str__(self):
         return "{}, {} {}".format(self.id, self.user.first_name, self.user.last_name)
