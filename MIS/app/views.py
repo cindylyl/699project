@@ -61,11 +61,6 @@ def job_group(request):
 def job_record(request):
     return render(request,'app/job-records.html')
 
-
-def report(request):
-    return render(request,'app/report.html')
-
-
 def semester(request):
     return render(request,'app/semester.html')
 
@@ -81,6 +76,51 @@ def faculty(request):
 def staff(request):
     return render(request, 'app/users-staff.html')
 
+
+def add_education(request):
+    return render(request, 'app/education-addnew.html')
+
+
+def add_internship_type(request):
+    return render(request, 'app/internship-type-addnew.html')
+
+
+def add_internship_info(request):
+    return render(request,'app/internship-information-addnew.html')
+
+
+def add_job_group(request):
+    return render(request,'app/job-groups-addnew.html')
+
+
+def add_job_record(request):
+    return render(request,'app/job-records-addnew.html')
+
+def add_semester(request):
+    return render(request,'app/semester-addnew.html')
+
+
+def add_student(request):
+    return render(request,'app/students-addnew.html')
+
+
+def add_faculty(request):
+    return render(request, 'app/users-faculty-addnew.html')
+
+
+def add_staff(request):
+    return render(request, 'app/users-staff-addnew.html')
+
+
+def add_semester(request):
+    return render(request,'app/semesters-addnew.html')
+
 class SemesterView(ListView):
     model = Semester_registered
     template_name = 'app/semesters.html'
+
+
+def report(request):
+    return render(request,'app/report.html')
+
+

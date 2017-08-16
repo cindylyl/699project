@@ -1,0 +1,209 @@
+{% extends 'app/base.html' %}
+
+{% block container %}
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Job Records
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="welcome.html">Home</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li>
+
+								<a href="#">Job</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li>
+
+								<a href="job-records.html">Job Records</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Add New</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN EXAMPLE FORM-->
+
+						<h2>Create New Job Record</h2>
+
+						<form role="form" action="#" method="post">
+
+							<div class="form-group">
+
+								<label for="jobGroup">Job Group</label>
+
+								<select class="form-control">
+
+									<option>Get data from job group</option>
+									<option>Get data from job group</option>
+									<option>Get data from job group</option>
+									<option>Get data from job group</option>
+									<option>Get data from job group</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="company">Company</label>
+
+								<select class="form-control">
+
+									<option>Get data from company</option>
+									<option>Get data from company</option>
+									<option>Get data from company</option>
+									<option>Get data from company</option>
+									<option>Get data from company</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="internshipType">Internship Type</label>
+
+								<select class="form-control">
+
+									<option>Get data from internship type</option>
+									<option>Get data from internship type</option>
+									<option>Get data from internship type</option>
+									<option>Get data from internship type</option>
+									<option>Get data from internship type</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="position">Position</label>
+
+								<input type="text" class="form-control" id="position" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="description">Description</label>
+
+								<textarea class="form-control" rows="3"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="responsibilities">Responsibilities</label>
+
+								<textarea class="form-control" rows="3" required="required"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="requirements">Requirements</label>
+
+								<textarea class="form-control" rows="3" required="required"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="salary">Salary</label>
+
+								<input type="text" class="form-control" id="salary" pattern="[0-9]{1,}" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="status">Status</label>
+
+								<select class="form-control">
+
+									<option selected="">Unopened</option>
+
+									<option>Open</option>
+
+									<option>Closed</option>
+
+								</select>
+
+							</div>
+
+                            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+                            <button type="reset" class="btn btn-primary" value="Reset">Reset</button>
+
+						</form>
+
+						<!-- END EXAMPLE FORM-->
+
+					</div>
+
+				</div>
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+{% extends 'app/base.html' %}
+
+{% block container %}
+    		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Semesters
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="welcome.html">Home</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li>
+
+								<a href="semesters.html">Semesters</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Add New</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN EXAMPLE FORM-->
+
+						<h2>Create New Semesters</h2>
+
+						<form role="form" action="#" method="post">
+
+							<div class="form-group">
+
+								<label for="semesterName">Semester Name</label>
+
+								<input type="text" class="form-control" id="semesterName" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="semesterYear">Semester Year</label>
+
+								<input type="text" class="form-control" id="semesterYear" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="numberOfStudents">Number of Students</label>
+
+								<input type="text" class="form-control" id="numberOfStudents" required="required">
+
+							</div>
+
+                            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+                            <button type="reset" class="btn btn-primary" value="Reset">Reset</button>
+
+						</form>
+
+						<!-- END EXAMPLE FORM-->
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->
+{% endblock %}
+
+
+
+
+
+
+

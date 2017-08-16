@@ -1,0 +1,328 @@
+{% extends 'app/base.html' %}
+
+{% block container %}
+
+	<!-- BEGIN CONTAINER -->
+
+	<div class="page-container">
+
+		<!-- BEGIN SIDEBAR -->
+
+		<div class="page-sidebar nav-collapse collapse">
+
+			<!-- BEGIN SIDEBAR MENU -->
+
+			<ul class="page-sidebar-menu">
+
+				<li>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+					<div class="sidebar-toggler hidden-phone"></div>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+				</li>
+
+				<li>
+					<br>
+				</li>
+
+
+				<li class="start">
+
+					<a href="welcome.html">
+
+					<i class="icon-home"></i>
+
+					<span class="title">Welcome</span>
+
+					</a>
+
+				</li>
+
+				<li class="">
+
+					<a href="javascript:;">
+
+					<i class="icon-tasks"></i>
+
+					<span class="title">Internships</span>
+
+					<span class="arrow "></span>
+
+					</a>
+
+					<ul class="sub-menu">
+
+						<li >
+
+							<a href="internship-type.html">
+
+							Internship Type</a>
+
+						</li>
+
+						<li >
+
+							<a href="internship-information.html">
+
+							Internship Information</a>
+
+						</li>
+
+					</ul>
+
+				</li>
+
+				<li class="active">
+
+					<a href="javascript:;">
+
+					<i class="icon-bookmark-empty"></i>
+
+					<span class="title">Jobs</span>
+					<span class="selected"></span>
+					<span class="arrow open"></span>
+
+					</a>
+
+					<ul class="sub-menu">
+
+						<li class="active">
+
+							<a href="job-groups.html">
+
+							Job Groups</a>
+
+						</li>
+
+						<li >
+
+							<a href="job-records.html">
+
+							Job Records</a>
+
+						</li>
+
+					</ul>
+
+				</li>
+
+				<li class="">
+
+					<a href="students.html">
+
+					<i class="icon-group"></i>
+
+					<span class="title">Students</span>
+
+					</a>
+
+				</li>
+
+				<li class="">
+
+					<a href="education.html">
+
+					<i class="icon-trophy"></i>
+
+					<span class="title">Education</span>
+
+					</a>
+
+				</li>
+
+				<li class="">
+
+					<a href="semesters.html">
+
+					<i class="icon-reorder"></i>
+
+					<span class="title">Semesters</span>
+
+					</a>
+
+				</li>
+
+				<li>
+
+					<a class="active" href="javascript:;">
+
+					<i class="icon-user"></i>
+
+					<span class="title">Users</span>
+
+					<span class="arrow "></span>
+
+					</a>
+
+					<ul class="sub-menu">
+
+                       <li >
+
+							<a href="users-staff.html">
+
+							Staff</a>
+
+						</li>
+
+						<li >
+
+							<a href="users-faculty.html">
+
+							Faculty</a>
+
+						</li>
+
+					</ul>
+
+				</li>
+
+				<li class="">
+
+					<a href="report.html">
+
+					<i class="icon-folder-open"></i>
+
+					<span class="title">Report</span>
+
+					</a>
+
+				</li>
+
+				<li class="">
+
+					<a href="contact.html">
+
+					<i class="icon-info-sign"></i>
+
+					<span class="title">Contact</span>
+
+					</a>
+
+				</li>
+
+			</ul>
+
+			<!-- END SIDEBAR MENU -->
+
+		</div>
+
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Job Groups
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="welcome.html">Home</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li>
+
+								<a href="#">Job</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li>
+
+								<a href="job-groups.html">Job Groups</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Add New</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN EXAMPLE FORM-->
+
+						<h2>Create New Job Group</h2>
+
+						<form role="form" action="#" method="post">
+
+							<div class="form-group">
+
+								<label for="jobGroupType">Job Group Type</label>
+
+								<input type="text" class="form-control" id="jobGroupType" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="jobGroupDescription">Description</label>
+
+								<textarea class="form-control" rows="3"></textarea>
+
+							</div>
+
+                            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+                            <button type="reset" class="btn btn-primary" value="Reset">Reset</button>
+
+						</form>
+
+						<!-- END EXAMPLE FORM-->
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+{% endblock %}
+
+
