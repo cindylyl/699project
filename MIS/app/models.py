@@ -19,15 +19,15 @@ class Intern_Info(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=20, default='Windsor')
     province = models.CharField(max_length=20, default='Ontario')
-    postal_code = models.CharField(max_length=10)
+    postal_code = models.CharField(max_length=10,blank=True)
     country = models.CharField(max_length=20, default='Canada')
-    contact_first_name = models.CharField(max_length=50)
-    contact_last_name = models.CharField(max_length=50)
-    contact_position = models.CharField(max_length=50)
+    contact_first_name = models.CharField(max_length=50,blank=True)
+    contact_last_name = models.CharField(max_length=50,blank=True)
+    contact_position = models.CharField(max_length=50,blank=True)
     telephone = models.IntegerField()
     email = models.EmailField()
     company_website = models.URLField()
-    notes = models.CharField(max_length=100)
+    notes = models.CharField(max_length=100,blank=True)
 
     def __str__(self):
         return self.company_name

@@ -52,6 +52,8 @@
 
 <body class="page-header-fixed">
 
+{% if request.user.is_authenticated %}
+
 	<!-- BEGIN HEADER -->
 
 	<div class="header navbar navbar-inverse navbar-fixed-top">
@@ -94,7 +96,7 @@
 
 						<img alt="" src="{% static 'app/image/avatar1_small.jpg' %}" />
 
-						<span class="username">Juzhou Zhang</span>
+						<span class="username">{{ user.first_name }}</span>
 
 						<i class="icon-angle-down"></i>
 
@@ -106,7 +108,7 @@
 
 							<li class="divider"></li>
 
-							<li><a href="index.html"><i class="icon-key"></i> Log Out</a></li>
+							<li><a href="{% url 'app:logout' %}"><i class="icon-key"></i> Log Out</a></li>
 
 						</ul>
 
@@ -390,7 +392,7 @@
 
 					<div class="text-center">
 
-						<h1>Welcome **** </h1>
+						<h1>Welcome  </h1>
 
 						<div class="clearfix"><br></div>
 
@@ -482,7 +484,10 @@
 	</script>
 
 	<!-- END JAVASCRIPTS -->
+{% else %}
+    <p>Please sign in.</p>
 
+{% endif %}
 </body>
 
 <!-- END BODY -->

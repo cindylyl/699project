@@ -1,17 +1,41 @@
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from django.views.generic import ListView
 from .models import *
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
     if request.method == 'POST':
-        return redirect('app/welcome.html')
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = authenticate(username=email, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+
+                return redirect('welcome/')
+            else:
+                return HttpResponse('Your account is inactive.')
+        # Return a 'disabled account' error message
+        else:
+            return HttpResponse('invalid login')
+        # Return an 'invalid login' error message.
     else:
         return render(request,'app/index.html')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('/app')
 
 
 def welcome(request):
     return render(request,'app/welcome.html')
+
 
 
 def contact(request):
@@ -27,7 +51,7 @@ def internship_type(request):
 
 
 def internship_info(request):
-    return render(request,'app/internship_information.html')
+    return render(request,'app/internship-information.html')
 
 
 def job_group(request):

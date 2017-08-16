@@ -127,4 +127,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-AUTHENTICATION_BACKENDS = ['MIS.backend.EmailBackend']
+#AUTHENTICATION_BACKENDS = ['MIS.backend.EmailBackend']
