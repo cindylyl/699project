@@ -108,38 +108,25 @@
 									</thead>
 
 									<tbody>
+                                    {% for staff in staff_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ staff.id }}</td>
 
-											<td>alex</td>
+											<td>{{ staff.user.username }}</td>
 
-											<td>Alex Nilson</td>
+											<td>{{ staff.user.first_name }} {{ staff.user.last_name }}</td>
 
-											<td>alex@uwindsor.ca</td>
+											<td>{{ staff.user.email }}</td>
 
-											<td><a class="edit" href="#">Edit</a></td>
+											<td><a class="edit" href="{% url 'app:update_staff' staff.user.id %}">Edit</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
-
-										</tr>
-
-										<tr class="">
-
-											<td>2</td>
-
-											<td>lisa</td>
-
-											<td>Lisa Wong</td>
-
-											<td>lisa@uwindsor.ca</td>
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_staff' staff.user.id %}">Delete</a></td>
 
 										</tr>
+
+									{% endfor %}
 
 
 									</tbody>

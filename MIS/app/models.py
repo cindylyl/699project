@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 
@@ -11,8 +12,7 @@ class Internship(models.Model):
     intern_discription = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{} {} {}".format(self.id, self.intern_type, self.intern_discription)
-
+        return "{}".format(self.intern_type)
 
 class Intern_Info(models.Model):
     company_name = models.CharField(max_length=100)
@@ -31,6 +31,9 @@ class Intern_Info(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    def get_absolute_url(self):
+        return reverse('app:update_internship_info', kwargs={'pk': self.pk})
 
 
 class Job_groups(models.Model):
@@ -110,8 +113,8 @@ class Student(models.Model):
 class Faculty(models.Model):
     user = models.OneToOneField(User)
     fac_department = models.CharField(max_length=20,default="")
-    fac_hire_date = models.DateField(auto_now=True)
-    fac_professor_rank = models.IntegerField(default=0)
+    fac_hire_date = models.DateField()
+    fac_professor_rank = models.CharField(max_length=30,blank=True)
 
     def __str__(self):
         return "{}, {} {}".format(self.id, self.user.first_name, self.user.last_name)
@@ -150,5 +153,8 @@ class Education(models.Model):
     stu_id = models.ForeignKey(Student)
 
     def __str__(self):
-        return self.edu_id
+        return '{0} - {1}'.format(self.edu_degree_title, self.edu_degree_university)
+
+    def get_absolute_url(self):
+        return reverse('app:update_education', kwargs={'pk': self.pk})
 

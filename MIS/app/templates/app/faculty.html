@@ -115,50 +115,31 @@
 									</thead>
 
 									<tbody>
+                                    {% for faculty in faculty_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ faculty.id }}</td>
 
-											<td>alex</td>
+											<td>{{ faculty.user.username }}</td>
 
-											<td>Alex Nilson</td>
+											<td>{{ faculty.user.first_name }} {{ faculty.user.last_name }}</td>
 
-											<td>alex@uwindsor.ca</td>
+											<td>{{ faculty.user.email }}</td>
 
-											<td>Computer</td>
+											<td>{{ faculty.fac_department }}</td>
 
-											<td>Assistant Professor</td>
+											<td>{{ faculty.fac_professor_rank }}</td>
 
-											<td>June 18, 2011</td>
+											<td>{{ faculty.fac_hire_date }}</td>
 
-											<td><a class="edit" href="#">Edit</a></td>
+											<td><a class="edit" href="{% url 'app:update_faculty' faculty.user.id %}">Edit</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
-
-										</tr>
-
-										<tr class="">
-
-											<td>2</td>
-
-											<td>lisa</td>
-
-											<td>Lisa Wong</td>
-
-											<td>lisa@uwindsor.ca</td>
-
-											<td>Buiness</td>
-
-											<td>Doctor</td>
-
-											<td>September 3, 2000</td>
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_faculty' faculty.user.id %}">Delete</a></td>
 
 										</tr>
+
+                                    {% endfor %}
 
 
 									</tbody>

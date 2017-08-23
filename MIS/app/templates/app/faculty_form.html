@@ -45,7 +45,7 @@
 
 							<li>
 
-								<a href="users-faculty.html">Faculty</a>
+								<a href="faculty.html">Faculty</a>
 
 								<i class="icon-angle-right"></i>
 
@@ -73,7 +73,7 @@
 
 						<form role="form" action="#" method="post">
 
-							<div class="form-group">
+							<!--<div class="form-group">
 
 								<label for="username">Username</label>
 
@@ -136,7 +136,34 @@
 
 								<input type="text" class="form-control" id="hireDate" required="required">
 
-							</div>
+							</div>-->
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+                            {{ faculties.management_form }}
+
+                            {% for form in faculties.forms %}
+                                {% if forloop.first %}
+
+                                        {% for field in form.visible_fields %}
+
+                                            {{ field.label|capfirst }}
+                                            <br>
+                                            {# Include the hidden fields in the form #}
+                                            {% if forloop.first %}
+                                                {% for hidden in form.hidden_fields %}
+                                                    {{ hidden }}
+                                                {% endfor %}
+                                            {% endif %}
+                                            {{ field.errors.as_ul }}
+                                            {{ field }}
+                                            <br>
+                                        {% endfor %}
+
+
+                                {% endif %}
+
+                            {% endfor %}
 
                             <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 

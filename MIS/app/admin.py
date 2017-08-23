@@ -6,9 +6,14 @@ from django.contrib.auth.admin import UserAdmin
 class StudentInline(admin.TabularInline):
     model = Student
 
+class FacultyInline(admin.TabularInline):
+    model = Faculty
+
+class StaffInline(admin.TabularInline):
+    model = Staff
 
 class CustomUserAdmin(UserAdmin):
-    inlines = [StudentInline,]
+    inlines = [StudentInline, FacultyInline, StaffInline]
 
 # Register your models here.
 admin.site.register(Student)

@@ -110,54 +110,35 @@
 									</thead>
 
 									<tbody>
+                                    {% for edu in education_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ edu.edu_id }}</td>
 
-											<td>Undergraduate</td>
+											<td>{{ edu.edu_degree }}</td>
 
-											<td>Bachelor of Engineer</td>
+											<td>{{ edu.edu_degree_title }}</td>
 
-											<td>89%</td>
+											<td>{{ edu.edu_degree_cgpa }} %</td>
 
-											<td>University of Windsor</td>
+											<td>{{ edu.edu_degree_university }}</td>
 
-											<td>Windsor</td>
+											<td>{{ edu.edu_degree_location }}</td>
 
-											<td>CCNA</td>
+											<td>{{ edu.edu_certification_title }}</td>
 
-											<td>CISCO</td>
+											<td>{{ edu.edu_certification_body }}</td>
 
-											<td><a class="edit" href="#">Edit</a></td>
+                                            <td><a class="edit" href="{% url 'app:update_education' edu.edu_id %}">Edit</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_education' edu.edu_id %}">Delete</a></td>
 
-										</tr>
 
-										<tr class="">
-
-											<td>2</td>
-
-											<td>Graduate</td>
-
-											<td>Master of Applied Computing</td>
-
-											<td>90%</td>
-
-											<td>University of Windsor</td>
-
-											<td>Windsor</td>
-
-											<td>CCNA</td>
-
-											<td>CISCO</td>
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
 
 										</tr>
+
+                                    {% endfor %}
 
 
 									</tbody>

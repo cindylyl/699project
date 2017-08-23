@@ -122,62 +122,38 @@
 
 									<tbody>
 
-										<tr class="">
-
-											<td>1</td>
-
-											<td>Web Development</td>
-
-											<td>BlackBerry</td>
-
-											<td>Industry</td>
-
-											<td>Web Developer</td>
-
-											<td>************************</td>
-
-											<td>*************************</td>
-
-											<td>*********************************</td>
-
-											<td>81,230</td>
-
-											<td>Open</td>
-
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
-
-										</tr>
+                                    {% for job in job_record_list %}
 
 										<tr class="">
 
-											<td>2</td>
+											<td>{{ job.id }}</td>
 
-											<td>Mobile Development</td>
+											<td>{{ job.job_group_id }}</td>
 
-											<td>BlackBerry</td>
+											<td>{{ job.company_id }}</td>
 
-											<td>Industry</td>
+											<td>{{ job.intern_id }}</td>
 
-											<td>Mobile Developer</td>
+											<td>{{ job.job_position }}</td>
 
-											<td>************************</td>
+											<td>{{ job.job_description }}</td>
 
-											<td>*************************</td>
+											<td>{{ job.job_resposibilities }}</td>
 
-											<td>*********************************</td>
+											<td>{{ job.job_requirements }}</td>
 
-											<td>79,230</td>
+											<td>{{ job.job_salary }}</td>
 
-											<td>Unopen</td>
+											<td>{{ job.job_status }}</td>
 
-											<td><a class="edit" href="#">Edit</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="edit" href="{% url 'app:update_job_record' job.id %}">Edit</a></td>
+
+											<td><a class="delete" href="{% url 'app:delete_job_record' job.id %}">Delete</a></td>
 
 										</tr>
+
+										{% endfor %}
 
 
 									</tbody>

@@ -96,25 +96,19 @@
 
 									<tbody>
 
-										<tr class="">
-
-											<td>Fall</td>
-
-											<td>2016</td>
-
-											<td>100</td>
-
-										</tr>
+                                    {% for semester in object_list %}
 
 										<tr class="">
 
-											<td>Winter</td>
+											<td>{{ semester.semester_name }}</td>
 
-											<td>2017</td>
+											<td>{{ semester.semester_year }}</td>
 
-											<td>140</td>
+											<td>{{ semester.student_set.count }}</td>
 
 										</tr>
+
+									{% endfor %}
 
 
 									</tbody>

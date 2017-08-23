@@ -1,8 +1,7 @@
 {% extends 'app/base.html' %}
 
 {% block container %}
-
-    		<!-- BEGIN PAGE -->
+		<!-- BEGIN PAGE -->
 
 		<div class="page-content">
 
@@ -20,7 +19,7 @@
 
 						<h3 class="page-title">
 
-							Staff
+							Education
 
 						</h3>
 
@@ -38,15 +37,7 @@
 
 							<li>
 
-								<a href="#">Users</a>
-
-								<i class="icon-angle-right"></i>
-
-							</li>
-
-							<li>
-
-								<a href="users-staff.html">Staff</a>
+								<a href="education.html">Education</a>
 
 								<i class="icon-angle-right"></i>
 
@@ -70,50 +61,75 @@
 
 						<!-- BEGIN EXAMPLE FORM-->
 
-						<h2>Create New Staff</h2>
+						<h2>Create New Education</h2>
 
 						<form role="form" action="#" method="post">
 
-							<div class="form-group">
+							<!--<div class="form-group">
 
-								<label for="username">Username</label>
+								<label for="degree">Degree</label>
 
-								<input type="text" class="form-control" id="username" required="required">
+								<select class="form-control">
 
-							</div>
+									<option>Undergraduate</option>
 
+									<option>Graduate</option>
 
-							<div class="form-group">
-
-								<label for="fristName">First Name</label>
-
-								<input type="text" class="form-control" id="fristName" required="required">
+								</select>
 
 							</div>
 
 							<div class="form-group">
 
-								<label for="middleName">Middle Name</label>
+								<label for="degreeTitle">Degree Title</label>
 
-								<input type="text" class="form-control" id="middleName">
-
-							</div>
-
-							<div class="form-group">
-
-								<label for="lastName">Last Name</label>
-
-								<input type="text" class="form-control" id="lastName" required="required">
+								<input type="text" class="form-control" id="degreeTitle" required="required">
 
 							</div>
 
 							<div class="form-group">
 
-								<label for="email">Email</label>
+								<label for="degreeCGPA">Degree CGPA</label>
 
-								<input type="text" class="form-control" id="email" required="required">
+								<input type="text" class="form-control" id="degreeCGPA" required="required">
 
 							</div>
+
+							<div class="form-group">
+
+								<label for="degreeUniversity">Degree University - University Name</label>
+
+								<input type="text" class="form-control" id="degreeUniversity" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="degreeUniversityLocation">Degree University Location - Country</label>
+
+								<input type="text" class="form-control" id="degreeUniversityLocation" required="required">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="certification">Certification - Title</label>
+
+								<input type="text" class="form-control" id="certification">
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="certificationBody">Certification Body</label>
+
+								<input type="text" class="form-control" id="certificationBody">
+
+							</div>-->
+                            {% csrf_token %}
+
+                            {{ form.as_p }}
+
 
                             <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 
@@ -135,9 +151,7 @@
 
 		<!-- END PAGE -->
 
-
 {% endblock %}
-
 
 
 

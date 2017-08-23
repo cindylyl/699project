@@ -110,43 +110,48 @@
 
 											<th>Company Website</th>
 
-											<th>Edit</th>
+											<th></th>
+                                            <th></th>
 
-											<th>Delete</th>
 
 										</tr>
 
 									</thead>
 
 									<tbody>
+                                    {% for info in info_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ info.id }}</td>
 
-											<td>University of Windsor</td>
+											<td>{{ info.company_name }}</td>
 
-											<td>401 Sunset Ave, Windsor, Ontario, Canada, N9B 3P4</td>
+											<td>{{ info.address}}, {{ info.city }}, {{ info.province }}, {{ info.country }}, {{ info.postal_code }}</td>
 
-											<td>Stephanos Mavromoustakos</td>
+											<td>{{ info.contact_first_name }}{{ info.contant_last_name }}</td>
 
-											<td>Professor</td>
+											<td>{{ info.contact_position }}</td>
 
-											<td>12345678</td>
+											<td>{{ info.telephone }}</td>
 
-											<td>stephano@uwindsor.ca</td>
+											<td>{{ info.email }}</td>
 
-											<td>http://www.uwindsor.ca/</td>
+											<td>{{ info.company_website }}/</td>
 
 											<!-- <td class="center">power user</td> -->
 
-											<td><a class="edit" href="#">Edit</a></td>
+											<td><a class="edit" href="{% url 'app:update_internship_info' info.id %}">Update</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_internship_info' info.id %}">Delete</a></td>
+
+											<!--<td><a class="delete" href="#">Delete</a></td>-->
 
 										</tr>
 
-										<tr class="">
+                                    {% endfor %}
+
+										<!--<tr class="">
 
 											<td>2</td>
 
@@ -168,7 +173,7 @@
 
 											<td><a class="delete" href="#">Delete</a></td>
 
-										</tr>
+										</tr>-->
 
 
 									</tbody>
