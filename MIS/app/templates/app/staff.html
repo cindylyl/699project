@@ -101,6 +101,7 @@
 											<th>User Full Name</th>
 
 											<th>Email</th>
+                                            <th>Hire Date</th>
                                             {% if 'staff' in request.user.groups.all.0.name %}
 
 											<th>Edit</th>
@@ -124,6 +125,7 @@
 											<td>{{ staff.user.first_name }} {{ staff.user.last_name }}</td>
 
 											<td>{{ staff.user.email }}</td>
+                                            <td>{{ staff.sta_hire_date }}</td>
 
                                             {% if perms.app.can_change_staff %}
 

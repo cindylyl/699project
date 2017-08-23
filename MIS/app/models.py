@@ -122,6 +122,7 @@ class Faculty(models.Model):
 
 class Staff(models.Model):
     user = models.OneToOneField(User)
+    sta_hire_date = models.DateField(blank=True,null=True)
 
     def __str__(self):
         return "{}, {} {}".format(self.id, self.user.first_name, self.user.last_name)
