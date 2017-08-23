@@ -104,6 +104,7 @@ ENV/
 # JetBrains IDEs
 .idea
 
+db.sqlite3
 
 fabfile.py
 .fabfile.py.swp
