@@ -64,6 +64,7 @@
 							</div>
 
 							<div class="portlet-body">
+                            {% if perms.app.can_add_education %}
 
 								<div class="clearfix">
 
@@ -78,6 +79,7 @@
 									</div>
 
 								</div>
+                            {% endif %}
 
 								<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 
@@ -101,9 +103,14 @@
 
 											<th>Certification Body</th>
 
-											<th>Edit</th>
+                                            {% if perms.app.can_change_education %}
 
-											<th>Delete</th>
+											<th></th>
+                                            {% endif %}
+                                            {% if perms.app.can_delete_education %}
+
+											<th></th>
+                                            {% endif %}
 
 										</tr>
 
@@ -130,9 +137,15 @@
 
 											<td>{{ edu.edu_certification_body }}</td>
 
+                                            {% if perms.app.can_change_education %}
+
                                             <td><a class="edit" href="{% url 'app:update_education' edu.edu_id %}">Edit</a></td>
+                                            {% endif %}
+
+                                            {% if perms.app.can_delete_education %}
 
 											<td><a class="delete" href="{% url 'app:delete_education' edu.edu_id %}">Delete</a></td>
+                                            {% endif %}
 
 
 

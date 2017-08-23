@@ -65,6 +65,7 @@
 							<div class="portlet-body">
 
 								<div class="clearfix">
+                                    {% if 'staff' in request.user.groups.all.0.name %}
 
 									<div class="btn-group">
 
@@ -75,6 +76,7 @@
 										</button></a>
 
 									</div>
+                                    {% endif %}
 
 									<div class="btn-group pull-right">
 
@@ -115,10 +117,12 @@
 											<th>Status</th>
 
 											<th>Current Past</th>
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
 											<th>Edit</th>
 
 											<th>Delete</th>
+                                            {% endif %}
 
 										</tr>
 
@@ -144,10 +148,12 @@
 											<td>{{ student.stu_current_past }}</td>
 
 											<!-- <td class="center">power user</td> -->
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
 											<td><a class="edit" href="{% url 'app:update_student' student.user.id %}">Edit</a></td>
 
 											<td><a class="delete" href="{% url 'app:delete_student' student.user.id %}">Delete</a></td>
+                                        {% endif %}
 
 										</tr>
 

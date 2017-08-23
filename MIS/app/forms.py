@@ -60,7 +60,7 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = '__all__'
-# combine User and Student object,
+# combine User and Student object by using formset
 StudentFormSet = inlineformset_factory(User,Student,form=StudentForm,extra=1)
 
 class FacultyForm(forms.ModelForm):

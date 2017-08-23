@@ -155,7 +155,11 @@ def semester(request):
 
 
 def student(request):
-    student_list = Student.objects.all()
+    group = request.user.groups.all()[0].name
+    if group == 'student':
+        student_list = Student.objects.filter(user=request.user)
+    else:
+        student_list = Student.objects.all()
     return render(request,'app/students.html',{'student_list':student_list})
 
 

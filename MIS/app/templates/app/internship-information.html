@@ -74,6 +74,8 @@
 
 							<div class="portlet-body">
 
+                            {% if 'staff' in request.user.groups.all.0.name %}
+
 								<div class="clearfix">
 
 									<div class="btn-group">
@@ -87,6 +89,7 @@
 									</div>
 									
 								</div>
+                            {% endif %}
 
 								<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 
@@ -109,9 +112,11 @@
 											<th>Email</th>
 
 											<th>Company Website</th>
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
 											<th></th>
                                             <th></th>
+                                            {% endif %}
 
 
 										</tr>
@@ -141,11 +146,14 @@
 
 											<!-- <td class="center">power user</td> -->
 
+                                            {% if 'staff' in request.user.groups.all.0.name %}
+
 											<td><a class="edit" href="{% url 'app:update_internship_info' info.id %}">Update</a></td>
 
 											<td><a class="delete" href="{% url 'app:delete_internship_info' info.id %}">Delete</a></td>
 
-											<!--<td><a class="delete" href="#">Delete</a></td>-->
+											{% endif %}
+                                            <!--<td><a class="delete" href="#">Delete</a></td>-->
 
 										</tr>
 
