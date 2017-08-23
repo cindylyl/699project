@@ -277,6 +277,8 @@
 
 				</li>
 
+                {% if 'student' not in request.user.groups.all.0.name %}
+
 				<li>
 
 					<a class="active" href="javascript:;">
@@ -310,6 +312,8 @@
 					</ul>
 
 				</li>
+
+                {% endif %}
 
 				<li class="">
 

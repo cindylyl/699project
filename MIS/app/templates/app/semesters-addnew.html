@@ -65,7 +65,7 @@
 
 						<form role="form" action="#" method="post">
 
-							<div class="form-group">
+							<!--<div class="form-group">
 
 								<label for="semesterName">Semester Name</label>
 
@@ -87,7 +87,9 @@
 
 								<input type="text" class="form-control" id="numberOfStudents" required="required">
 
-							</div>
+							</div>-->
+                            {% csrf_token %}
+                            {{ form.as_p }}
 
                             <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 

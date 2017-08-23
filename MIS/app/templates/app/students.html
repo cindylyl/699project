@@ -65,6 +65,7 @@
 							<div class="portlet-body">
 
 								<div class="clearfix">
+                                    {% if 'staff' in request.user.groups.all.0.name %}
 
 									<div class="btn-group">
 
@@ -75,6 +76,7 @@
 										</button></a>
 
 									</div>
+                                    {% endif %}
 
 									<div class="btn-group pull-right">
 
@@ -115,62 +117,47 @@
 											<th>Status</th>
 
 											<th>Current Past</th>
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
 											<th>Edit</th>
 
 											<th>Delete</th>
+                                            {% endif %}
 
 										</tr>
 
 									</thead>
 
 									<tbody>
+                                    {% for student in student_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ student.id }}</td>
 
-											<td>Alex Nilson</td>
+											<td>{{ student.user.first_name }} {{ student.user.last_name }}</td>
 
-											<td>alex@uwindsor.ca</td>
+											<td>{{ student.user.email }}</td>
 
-											<td>1234567890</td>
+											<td>{{ student.stu_telephone }}</td>
 
-											<td>Male</td>
+											<td>{{ student.stu_gender }}</td>
 
-											<td>International</td>
+											<td>{{ student.stu_status }}</td>
 
-											<td>Current Student</td>
+											<td>{{ student.stu_current_past }}</td>
 
 											<!-- <td class="center">power user</td> -->
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
-											<td><a class="edit" href="#">Edit</a></td>
+											<td><a class="edit" href="{% url 'app:update_student' student.user.id %}">Edit</a></td>
 
-											<td><a class="delete" href="#">Delete</a></td>
-
-										</tr>
-
-										<tr class="">
-
-											<td>2</td>
-
-											<td>Lisa Wong</td>
-
-											<td>lisa@uwindsor.ca</td>
-
-											<td>0987654321</td>
-
-											<td>Female</td>
-
-											<td>Citizen</td>
-
-											<td>Past Student</td>
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_student' student.user.id %}">Delete</a></td>
+                                        {% endif %}
 
 										</tr>
+
+										{% endfor %}
 
 
 									</tbody>
