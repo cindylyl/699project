@@ -55,7 +55,7 @@ class Job(models.Model):
     job_description = models.CharField(max_length=100)
     job_responsibilities = models.CharField(max_length=50)
     job_requirements = models.CharField(max_length=50)
-    job_salary = models.IntegerField()
+    job_salary = models.IntegerField(default=0)
     job_status = models.CharField(max_length=10, choices=STATUS_CHOICES)
 
     def __str__(self):
@@ -100,6 +100,7 @@ class Student(models.Model):
     # stu_email = models.EmailField()
     stu_telephone = models.IntegerField(null=True, blank= True)
     stu_gender = models.CharField(max_length=1, choices=GENDER_CHOICES,default="")
+    stu_nationality = models.CharField(max_length=50, null=True)
     stu_status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='I')
     stu_current_past = models.CharField(max_length=1, choices=CURRENT_PAST,default="")
 
@@ -145,10 +146,10 @@ class Education(models.Model):
     edu_degree_cgpa = models.CharField(max_length=2)
     edu_degree_university = models.CharField(max_length=30)
     edu_degree_location = models.CharField(max_length=30)
-    edu_certification_title = models.CharField(max_length=50)
-    edu_certification_body = models.CharField(max_length=200)
+    edu_certification_title = models.CharField(max_length=50, blank=True, null=True)
+    edu_certification_body = models.CharField(max_length=200, blank=True, null=True)
     stu_id = models.ForeignKey(Student)
 
     def __str__(self):
-        return self.edu_id
+        return self.edu_degree_title
 

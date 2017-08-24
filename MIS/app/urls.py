@@ -2,6 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+
     url(r'^$', views.index, name='index'),
     url(r'^welcome/$', views.welcome, name='welcome'),
     url(r'^contact$', views.contact,name='contact'),
@@ -25,4 +26,21 @@ urlpatterns = [
     url(r'^add_semester$', views.add_semester, name='add_semester'),
     url(r'^report$',views.report, name="report"),
     url(r'logout/',views.user_logout, name='logout'),
+
+    url(r'^report_allStudent$', views.report_allStudent, name='report_allStudent'),
+    url(r'^report_studentsFromCountry', views.report_studentsFromCountry, name='report_studentsFromCountry'),
+    url(r'^report_studentWithJob$', views.report_studentWithJob, name='report_studentWithJob'),
+    url(r'^report_studentWithoutJob$', views.report_studentWithoutJob, name='report_studentWithoutJob'),
+    url(r'^report_studentWithPay$', views.report_studentWithPay, name='report_studentWithPay'),
+    url(r'^report_studentWithoutPay$', views.report_studentWithoutPay, name='report_studentWithoutPay'),
+    url(r'^report_averageCurrentGPA$', views.report_averageCurrentGPA, name='report_averageCurrentGPA'),
+    url(r'^report_averagePreviousGPA$', views.report_averagePreviousGPA, name='report_averagePreviousGPA'),
+    url(r'^report_studentsAverageCurrentGPAFromCountryFromYear', views.report_studentsAverageCurrentGPAFromCountryFromYear, name='report_studentsAverageCurrentGPAFromCountryFromYear'),
+    url(r'^report_studentsWithPaidFromCountryFromYear', views.report_studentsWithPaidFromCountryFromYear, name='report_studentsWithPaidFromCountryFromYear'),
+    url(r'^report_studentsWithJobFromYear', views.report_studentsWithJobFromYear, name='report_studentsWithJobFromYear'),
+    url(r'^report_studentsWithoutJobFromYear', views.report_studentsWithoutJobFromYear, name='report_studentsWithoutJobFromYear'),
+    url(r'^report_allEmployers$', views.report_allEmployers, name='report_allEmployers'),
+    url(r'^report_employerFromCity', views.report_employerFromCity, name='report_employerFromCity'),
+    url(r'^report_allOpenPosition$', views.report_allOpenPositions, name='report_allOpenPositions'),
+
 ]

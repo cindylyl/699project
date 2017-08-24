@@ -52,8 +52,6 @@
 
 <body class="page-header-fixed">
 
-{% if request.user.is_authenticated %}
-
 	<!-- BEGIN HEADER -->
 
 	<div class="header navbar navbar-inverse navbar-fixed-top">
@@ -159,7 +157,7 @@
 				</li>
 
 
-				<li class="start active ">
+				<li class="start ">
 
 					<a href="{% url 'app:welcome' %}">
 
@@ -484,10 +482,7 @@
 	</script>
 
 	<!-- END JAVASCRIPTS -->
-{% else %}
-    <p>Please sign in.</p>
 
-{% endif %}
 </body>
 
 <!-- END BODY -->

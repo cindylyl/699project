@@ -1,0 +1,71 @@
+{% extends 'app/base.html' %}
+
+
+{% block container %}
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">    
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Report
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="{% url 'app:welcome' %}">Home</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Report</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div id="dashboard">
+
+                    <h3>Students Average Current GPA: </h3>
+                    {% if averageCurrentGPA %}
+                        Students Average Current GPA: {{ averageCurrentGPA }}<br>
+                        Total number of Current Students: {{ studentnumber }}
+                    {% else %}
+                        <strong>There is no students average current GPA in the database!</strong>
+                    {% endif %}
+
+				</div>
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->    
+
+		</div>
+
+		<!-- END PAGE -->
+
+{% endblock %}

@@ -30,7 +30,7 @@
 
 								<i class="icon-home"></i>
 
-								<a href="welcome.html">Home</a> 
+								<a href="{% url 'app:welcome' %}">Home</a>
 
 								<i class="icon-angle-right"></i>
 
@@ -50,35 +50,35 @@
 
 				<div id="dashboard">
 
-					<p><a href="#">All students</a></p>
+					<p><a href="{% url 'app:report_allStudent' %}">All students</a></p>
 
-					<p><a href="#">Students from specific country (e.g. India)</a></p>
+                    <p><a href="{% url 'app:report_studentsFromCountry' %}">Students from specific country (e.g. China)</a></p>
 
-					<p><a href="#">Students with a job in a company</a></p>
+					<p><a href="{% url 'app:report_studentWithJob' %}">Students with a job in a company</a></p>
 
-					<p><a href="#">Students without any job</a></p>
+					<p><a href="{% url 'app:report_studentWithoutJob' %}">Students without any job</a></p>
 
-					<p><a href="#">Students with a paid job</a></p>
+					<p><a href="{% url 'app:report_studentWithPay' %}">Students with a paid job</a></p>
 
-					<p><a href="#">Students without a paid job</a></p>
+					<p><a href="{% url 'app:report_studentWithoutPay' %}">Students without a paid job</a></p>
 
-					<p><a href="#">Students average current GPA</a></p>
+					<p><a href="{% url 'app:report_averageCurrentGPA' %}">Students average current GPA</a></p>
 
-					<p><a href="#">Students average previous GPA</a></p>
+					<p><a href="{% url 'app:report_averagePreviousGPA' %}">Students average previous GPA</a></p>
 
-					<p><a href="#">Students average current GPA from specific country (e.g. India) and from a specific year (e.g. Fall 2014)</a></p>
+					<p><a href="{% url 'app:report_studentsAverageCurrentGPAFromCountryFromYear' %}">Students average current GPA from specific country (e.g. India) and from a specific year (e.g. Fall 2014)</a></p>
 
-					<p><a href="#">Students with a paid job from specific country (e.g. India) and from a specific year (e.g. Fall 2014)</a></p>
+					<p><a href="{% url 'app:report_studentsWithPaidFromCountryFromYear' %}">Students with a paid job from specific country (e.g. India) and from a specific year (e.g. Fall 2014)</a></p>
 
-					<p><a href="#">Students with a job from a specific year (e.g. Fall 2014)</a></p>
+					<p><a href="{% url 'app:report_studentsWithJobFromYear' %}">Students with a job from a specific year (e.g. Fall 2014)</a></p>
 
-					<p><a href="#">Students without a job from a specific year (e.g. Fall 2014)</a></p>
+					<p><a href="{% url 'app:report_studentsWithoutJobFromYear' %}">Students without a job from a specific year (e.g. Fall 2014)</a></p>
 
-					<p><a href="#">All employers</a></p>
+					<p><a href="{% url 'app:report_allEmployers' %}">All employers</a></p>
 
-					<p><a href="#">Employers from a specific city</a></p>
+					<p><a href="{% url 'app:report_employerFromCity' %}">Employers from a specific city</a></p>
 
-					<p><a href="#">All OPEN positions</a></p>
+					<p><a href="{% url 'app:report_allOpenPositions' %}">All OPEN positions</a></p>
 
 				</div>
 

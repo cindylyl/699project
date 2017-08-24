@@ -1,0 +1,85 @@
+{% extends 'app/base.html' %}
+
+
+{% block container %}
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">    
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Report
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="{% url 'app:welcome' %}">Home</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Report</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div id="dashboard">
+
+                    <h3>The List of Students With A Job from A Specific Year: </h3>
+
+                    <div>
+                            <form action="/app/report_studentsWithJobFromYear/" method="post">
+                                {% csrf_token %}
+                                <p>Semester Name: <input type="text" name="semestername" >For example: F as Fall, W as Winter</p>
+                                <p>Semester Year: <input type="text" name="semesteryear" >For example: 2017</p>
+                                <input type="submit" value="Submit">
+                                <input type="reset" value="Reset">
+                            </form>
+                    </div>
+
+                    {% if studentslist %}
+                        <ol>
+                        {% for student in studentslist %}
+                            <li>{{ student }}</li>
+                        {% endfor %}
+                        </ol>
+                    {% else %}
+                        <strong>There is no student in the database!</strong>
+                    {% endif %}
+
+				</div>
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->    
+
+		</div>
+
+		<!-- END PAGE -->
+
+{% endblock %}
