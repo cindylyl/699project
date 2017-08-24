@@ -1,6 +1,7 @@
 {% extends 'app/base.html' %}
 
 {% block container %}
+
 		<!-- BEGIN PAGE -->
 
 		<div class="page-content">
@@ -19,7 +20,7 @@
 
 						<h3 class="page-title">
 
-							Staff
+							Faculty
 
 						</h3>
 
@@ -40,10 +41,10 @@
 								<a href="#">Users</a>
 
 								<i class="icon-angle-right"></i>
-
+								
 							</li>
 
-							<li><a href="#">Staff</a></li>
+							<li><a href="#">Faculty</a></li>
 
 						</ul>
 
@@ -65,17 +66,19 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-edit"></i>Staff Table</div>
+								<div class="caption"><i class="icon-edit"></i>Faculty Table</div>
 
 							</div>
 
 							<div class="portlet-body">
 
+                             {% if 'staff' in request.user.groups.all.0.name %}
+
 								<div class="clearfix">
 
 									<div class="btn-group">
 
-										<a href="{% url 'app:add_staff' %}"><button id="sample_editable_1_new" class="btn green">
+										<a href="{% url 'app:add_faculty' %}"><button id="sample_editable_1_new" class="btn green">
 
 										Add New <i class="icon-plus"></i>
 
@@ -84,6 +87,7 @@
 									</div>
 
 								</div>
+                            {% endif %}
 
 								<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 
@@ -99,47 +103,52 @@
 
 											<th>Email</th>
 
+											<th>Department</th>
+
+											<th>Professor Rank</th>
+
+											<th>Hire Date</th>
+                                            {% if 'staff' in request.user.groups.all.0.name %}
+
 											<th>Edit</th>
 
 											<th>Delete</th>
+
+                                            {% endif %}
 
 										</tr>
 
 									</thead>
 
 									<tbody>
+                                    {% for faculty in faculty_list %}
 
 										<tr class="">
 
-											<td>1</td>
+											<td>{{ faculty.id }}</td>
 
-											<td>alex</td>
+											<td>{{ faculty.user.username }}</td>
 
-											<td>Alex Nilson</td>
+											<td>{{ faculty.user.first_name }} {{ faculty.user.last_name }}</td>
 
-											<td>alex@uwindsor.ca</td>
+											<td>{{ faculty.user.email }}</td>
 
-											<td><a class="edit" href="#">Edit</a></td>
+											<td>{{ faculty.fac_department }}</td>
 
-											<td><a class="delete" href="#">Delete</a></td>
+											<td>{{ faculty.fac_professor_rank }}</td>
 
-										</tr>
+											<td>{{ faculty.fac_hire_date }}</td>
 
-										<tr class="">
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
-											<td>2</td>
+											<td><a class="edit" href="{% url 'app:update_faculty' faculty.user.id %}">Edit</a></td>
 
-											<td>lisa</td>
-
-											<td>Lisa Wong</td>
-
-											<td>lisa@uwindsor.ca</td>
-
-											<td><a class="edit" href="#">Edit</a></td>
-
-											<td><a class="delete" href="#">Delete</a></td>
+											<td><a class="delete" href="{% url 'app:delete_faculty' faculty.user.id %}">Delete</a></td>
+                                        {% endif %}
 
 										</tr>
+
+                                    {% endfor %}
 
 
 									</tbody>
@@ -163,4 +172,7 @@
 		</div>
 
 		<!-- END PAGE -->
+
+
+	<!-- END CONTAINER -->
 {% endblock %}

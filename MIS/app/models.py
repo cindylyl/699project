@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 
@@ -11,8 +12,7 @@ class Internship(models.Model):
     intern_discription = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{} {} {}".format(self.id, self.intern_type, self.intern_discription)
-
+        return "{}".format(self.intern_type)
 
 class Intern_Info(models.Model):
     company_name = models.CharField(max_length=100)
@@ -31,6 +31,9 @@ class Intern_Info(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    def get_absolute_url(self):
+        return reverse('app:update_internship_info', kwargs={'pk': self.pk})
 
 
 class Job_groups(models.Model):
@@ -100,9 +103,9 @@ class Student(models.Model):
     # stu_email = models.EmailField()
     stu_telephone = models.IntegerField(null=True, blank= True)
     stu_gender = models.CharField(max_length=1, choices=GENDER_CHOICES,default="")
-    stu_nationality = models.CharField(max_length=50, null=True)
     stu_status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='I')
     stu_current_past = models.CharField(max_length=1, choices=CURRENT_PAST,default="")
+    stu_nationality = models.CharField(max_length=50, blank= True, null=True)
 
     def __str__(self):
         return "{} {}".format(self.user.first_name, self.user.last_name)
@@ -111,8 +114,8 @@ class Student(models.Model):
 class Faculty(models.Model):
     user = models.OneToOneField(User)
     fac_department = models.CharField(max_length=20,default="")
-    fac_hire_date = models.DateField(auto_now=True)
-    fac_professor_rank = models.IntegerField(default=0)
+    fac_hire_date = models.DateField()
+    fac_professor_rank = models.CharField(max_length=30,blank=True)
 
     def __str__(self):
         return "{}, {} {}".format(self.id, self.user.first_name, self.user.last_name)
@@ -120,6 +123,7 @@ class Faculty(models.Model):
 
 class Staff(models.Model):
     user = models.OneToOneField(User)
+    sta_hire_date = models.DateField(blank=True,null=True)
 
     def __str__(self):
         return "{}, {} {}".format(self.id, self.user.first_name, self.user.last_name)
@@ -146,10 +150,13 @@ class Education(models.Model):
     edu_degree_cgpa = models.CharField(max_length=2)
     edu_degree_university = models.CharField(max_length=30)
     edu_degree_location = models.CharField(max_length=30)
-    edu_certification_title = models.CharField(max_length=50, blank=True, null=True)
-    edu_certification_body = models.CharField(max_length=200, blank=True, null=True)
+    edu_certification_title = models.CharField(max_length=50,blank=True, null=True)
+    edu_certification_body = models.CharField(max_length=200,blank=True, null=True)
     stu_id = models.ForeignKey(Student)
 
     def __str__(self):
-        return self.edu_degree_title
+        return '{0} - {1}'.format(self.edu_degree_title, self.edu_degree_university)
+
+    def get_absolute_url(self):
+        return reverse('app:update_education', kwargs={'pk': self.pk})
 

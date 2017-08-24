@@ -52,6 +52,8 @@
 
 <body class="page-header-fixed">
 
+{% if request.user.is_authenticated %}
+
 	<!-- BEGIN HEADER -->
 
 	<div class="header navbar navbar-inverse navbar-fixed-top">
@@ -157,7 +159,7 @@
 				</li>
 
 
-				<li class="start ">
+				<li class="start active ">
 
 					<a href="{% url 'app:welcome' %}">
 
@@ -275,6 +277,8 @@
 
 				</li>
 
+                {% if 'student' not in request.user.groups.all.0.name %}
+
 				<li>
 
 					<a class="active" href="javascript:;">
@@ -308,6 +312,8 @@
 					</ul>
 
 				</li>
+
+                {% endif %}
 
 				<li class="">
 
@@ -482,7 +488,10 @@
 	</script>
 
 	<!-- END JAVASCRIPTS -->
+{% else %}
+    <p>Please sign in.</p>
 
+{% endif %}
 </body>
 
 <!-- END BODY -->

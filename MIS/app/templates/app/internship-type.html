@@ -88,14 +88,18 @@
 
 									<tbody>
 
+                                    {% for type in internshiptype %}
+
 										<tr class="">
 
-											<td>Industry</td>
+											<td>{{ type.intern_type }}</td>
 
-											<td>15</td>
+											<td>{{ type.job_set.count }}</td>
 
 										</tr>
+                                    {% endfor %}
 
+										<!--
 										<tr class="">
 
 											<td>MAC Project</td>
@@ -103,6 +107,7 @@
 											<td>12</td>
 
 										</tr>
+										-->
 
 
 									</tbody>
