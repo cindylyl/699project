@@ -64,7 +64,7 @@
 							</div>
 
 							<div class="portlet-body">
-                            {% if perms.app.can_add_education %}
+                            {% if 'staff' in request.user.groups.all.0.name %}
 
 								<div class="clearfix">
 
@@ -103,13 +103,10 @@
 
 											<th>Certification Body</th>
 
-                                            {% if perms.app.can_change_education %}
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
-											<th></th>
-                                            {% endif %}
-                                            {% if perms.app.can_delete_education %}
-
-											<th></th>
+											<th>Edit</th>
+											<th>Delete</th>
                                             {% endif %}
 
 										</tr>
@@ -137,13 +134,9 @@
 
 											<td>{{ edu.edu_certification_body }}</td>
 
-                                            {% if perms.app.can_change_education %}
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
                                             <td><a class="edit" href="{% url 'app:update_education' edu.edu_id %}">Edit</a></td>
-                                            {% endif %}
-
-                                            {% if perms.app.can_delete_education %}
-
 											<td><a class="delete" href="{% url 'app:delete_education' edu.edu_id %}">Delete</a></td>
                                             {% endif %}
 

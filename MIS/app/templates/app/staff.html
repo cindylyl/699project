@@ -71,7 +71,7 @@
 
 							<div class="portlet-body">
 
-                            {% if perms.app.can_add_staff %}
+                            {% if 'staff' in request.user.groups.all.0.name %}
 
 								<div class="clearfix">
 
@@ -127,13 +127,10 @@
 											<td>{{ staff.user.email }}</td>
                                             <td>{{ staff.sta_hire_date }}</td>
 
-                                            {% if perms.app.can_change_staff %}
+                                            {% if 'staff' in request.user.groups.all.0.name %}
 
 											<td><a class="edit" href="{% url 'app:update_staff' staff.user.id %}">Edit</a></td>
-                                            {% endif %}
-
-                                        {% if perms.app.can_delete_staff %}
-
+                                        
 											<td><a class="delete" href="{% url 'app:delete_staff' staff.user.id %}">Delete</a></td>
                                         {% endif %}
 
